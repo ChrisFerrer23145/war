@@ -100,7 +100,6 @@ class Game extends Canvas implements Runnable {
 
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
-
         g.setColor(java.awt.Color.GRAY);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
@@ -117,7 +116,14 @@ class Game extends Canvas implements Runnable {
         
         g.drawString("Cards left (hand): " + hand.size(), 531, 457);
         g.drawString("Cards left (other): " + other.size(), 531, 85);
+
+        if (other.size() == 0) {
+            stop();
+        } else if (hand.size() == 0) {
+            stop();
+        }
         g2d.translate(this.getWidth() / 2, this.getHeight() / 2);
+        
 
         g.dispose();
         bs.show();

@@ -51,14 +51,21 @@ public class playCard {
                 int s = table.size();
                 if (s > 0) {
                     if (table.get(table.size()-2).getValue() == table.get(table.size() - 1).getValue()) {
-                        table.add(hand.get(s/2 + 1)); // 2
-                        table.add(hand.get(s/2 + 2)); // 3
-                        table.add(hand.get(s/2 + 3)); // 4
-                        table.add(other.get(s/2 + 1)); // 5
-                        table.add(other.get(s/2 + 2)); // 6
-                        table.add(other.get(s/2 + 3)); // 7
-                        table.add(hand.get(s/2 + 4)); // 0
-                        table.add(other.get(s/2 + 4)); // 1
+                        if (hand.size() - 6 >= 0 && other.size() - 6 >= 0) {
+                            table.add(hand.get(s/2 + 1)); // 2
+                            table.add(hand.get(s/2 + 2)); // 3
+                            table.add(hand.get(s/2 + 3)); // 4
+                            table.add(other.get(s/2 + 1)); // 5
+                            table.add(other.get(s/2 + 2)); // 6
+                            table.add(other.get(s/2 + 3)); // 7
+                            table.add(hand.get(s/2 + 4)); // 0
+                            table.add(other.get(s/2 + 4)); // 1
+                        } else if (other.size() - 4 < 0) {
+                            other.clear();
+                        } else {
+                            hand.clear();
+                        }
+
                     } else if ((table.get(table.size()-2).getValue() > table.get(table.size() - 1).getValue() || table.get(table.size()-2).getValue() == 1) && table.get(table.size() - 1).getValue() != 1) {
                         for (int i = 0; i < table.size(); i++) {
                             switch (i % 8) {
