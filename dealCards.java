@@ -21,16 +21,15 @@ public class dealCards {
 
     public void setCards() {
         int size = cards.getCardList().size();
-        for (int i = 0; i < size; i++) {
+        if (size > 0) {
             int ran =  (int) (Math.random() * size);
             if (hand.size() == 26) {
-                other.add(cards.getCardList().get(ran).setHand("other"));
+                 other.add(cards.getCardList().get(ran).setHand("other"));
             } else {
-                hand.add(cards.getCardList().get(ran).setHand("hand"));
+                 hand.add(cards.getCardList().get(ran).setHand("hand"));
             }
             cards.getCardList().remove(ran);
-            size--;
-            i--;
+            setCards();
         }
     }
 }
