@@ -28,8 +28,8 @@ class Game extends Canvas implements Runnable {
         new window(1000, 563, "War", this);
         
         imgLoader loader = new imgLoader();
-        cardsSpriteSheet = loader.loadImage("src/cards.png");
-        spriteSheet = loader.loadImage("src/spritesheet.png");
+        cardsSpriteSheet = loader.loadImage("cards.png");
+        spriteSheet = loader.loadImage("spritesheet.png");
         css = new spriteSheet(cardsSpriteSheet);
         ss = new spriteSheet(spriteSheet);
         cards = new Cards(css, ss);
